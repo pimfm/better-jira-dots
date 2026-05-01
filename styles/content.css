@@ -1,0 +1,44 @@
+/* Better Jira Dots — content styles
+ *
+ * The extension only modifies elements Jira already rendered as a native aging
+ * indicator. .bjd-hidden-native is added directly to the native element when
+ * we replace or hide it; .bjd-dots is our replacement, inserted as the next
+ * sibling so it occupies the same visual slot.
+ *
+ * Colours and progression mirror Jira Cloud's documented two-tier scheme.
+ */
+
+.bjd-hidden-native {
+  display: none !important;
+}
+
+.bjd-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-wrap: nowrap;
+  vertical-align: middle;
+  pointer-events: auto;
+  line-height: 0;
+}
+
+.bjd-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: 0 0 auto;
+}
+
+.bjd-dot--grey {
+  background-color: #6b778c;
+}
+
+.bjd-dot--red {
+  background-color: #c9372c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bjd-dot--grey { background-color: #8c9bab; }
+  .bjd-dot--red { background-color: #f87168; }
+}

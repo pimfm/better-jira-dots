@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Better Jira Dots",
+  "short_name": "Better Jira Dots",
+  "version": "1.3.1",
+  "description": "Hide aging dots in To Do and Done columns and skip weekends in the count. Configurable per status category.",
+  "default_locale": "en",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage"],
+  "host_permissions": ["https://*.atlassian.net/*"],
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Better Jira Dots",
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.atlassian.net/jira/*", "https://*.atlassian.net/secure/RapidBoard.jspa*"],
+      "css": ["styles/content.css"],
+      "js": [
+        "src/content/settings.js",
+        "src/content/workdays.js",
+        "src/content/api.js",
+        "src/content/dots.js",
+        "src/content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "better-jira-dots@pimvangurp.dev",
+      "strict_min_version": "115.0"
+    }
+  }
+}

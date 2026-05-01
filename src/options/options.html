@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Better Jira Dots — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="page__header">
+      <h1>Better Jira Dots</h1>
+      <p class="page__subtitle">Customize the aging dots on your Jira boards.</p>
+    </header>
+
+    <form id="settings-form" class="settings">
+      <section class="settings__group">
+        <label class="toggle">
+          <input type="checkbox" id="enabled" />
+          <span>Enable extension</span>
+        </label>
+        <p class="hint">When disabled, Jira's native aging dots are restored.</p>
+      </section>
+
+      <section class="settings__group">
+        <h2>Hide dots in these status categories</h2>
+        <label class="checkbox">
+          <input type="checkbox" data-category="new" />
+          <span>To Do <small>(category: <code>new</code>)</small></span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" data-category="indeterminate" />
+          <span>In Progress <small>(category: <code>indeterminate</code>)</small></span>
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" data-category="done" />
+          <span>Done <small>(category: <code>done</code>)</small></span>
+        </label>
+        <p class="hint">Jira maps every column to one of three status categories. Hiding by category works regardless of column names.</p>
+      </section>
+
+      <section class="settings__group">
+        <h2>Working days</h2>
+        <div class="weekdays">
+          <label><input type="checkbox" data-day="0" /><span>Sun</span></label>
+          <label><input type="checkbox" data-day="1" /><span>Mon</span></label>
+          <label><input type="checkbox" data-day="2" /><span>Tue</span></label>
+          <label><input type="checkbox" data-day="3" /><span>Wed</span></label>
+          <label><input type="checkbox" data-day="4" /><span>Thu</span></label>
+          <label><input type="checkbox" data-day="5" /><span>Fri</span></label>
+          <label><input type="checkbox" data-day="6" /><span>Sat</span></label>
+        </div>
+        <p class="hint">Days <em>not</em> ticked are excluded from the count.</p>
+      </section>
+
+      <section class="settings__group">
+        <h2>Dot progression (matches Jira)</h2>
+        <div class="preview" id="preview">
+          <div class="preview__row"><span class="preview__label">1 day</span><div class="preview__dots" data-count="1"></div></div>
+          <div class="preview__row"><span class="preview__label">2 days</span><div class="preview__dots" data-count="2"></div></div>
+          <div class="preview__row"><span class="preview__label">3 days</span><div class="preview__dots" data-count="3"></div></div>
+          <div class="preview__row"><span class="preview__label">5 days</span><div class="preview__dots" data-count="5"></div></div>
+          <div class="preview__row"><span class="preview__label">8 days</span><div class="preview__dots" data-count="8"></div></div>
+          <div class="preview__row"><span class="preview__label">12 days</span><div class="preview__dots" data-count="12"></div></div>
+          <div class="preview__row"><span class="preview__label">20+ days</span><div class="preview__dots" data-count="20"></div></div>
+        </div>
+        <p class="hint">Counts are working days (weekends and any unticked weekdays excluded).</p>
+      </section>
+
+      <footer class="settings__footer">
+        <span class="status" id="status" role="status" aria-live="polite"></span>
+        <button type="button" id="reset" class="btn btn--ghost">Reset to defaults</button>
+      </footer>
+    </form>
+
+    <section class="about">
+      <h2>About</h2>
+      <p>This extension hides Jira's native aging dots in the status categories you select, and recomputes the count using working days only. All data stays in your browser; no third-party services are contacted.</p>
+      <p>Tip: changes apply immediately to any open Jira tab.</p>
+    </section>
+  </main>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>

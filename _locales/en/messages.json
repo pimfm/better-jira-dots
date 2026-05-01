@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Better Jira Dots",
+    "description": "The name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Hide aging dots in To Do and Done columns and skip weekends in the count. Configurable per status category.",
+    "description": "Description of the extension shown in the store and browser settings."
+  }
+}
