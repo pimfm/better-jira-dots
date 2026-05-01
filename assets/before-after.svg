@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 360" role="img" aria-labelledby="title desc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif">
+  <title id="title">Better Jira Dots — before and after</title>
+  <desc id="desc">Same Jira card aged seven calendar days. Native Jira shows four dots with one red, Better Jira Dots shows four grey dots because only five working days have elapsed.</desc>
+
+  <style>
+    .panel { fill: #ffffff; stroke: #dfe1e6; stroke-width: 1; }
+    .label { fill: #5e6c84; font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+    .key   { fill: #0052cc; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 13px; font-weight: 600; }
+    .sum   { fill: #172b4d; font-size: 14px; }
+    .note  { fill: #5e6c84; font-size: 12px; }
+    .grey  { fill: #6b778c; }
+    .red   { fill: #c9372c; }
+    .arrow { fill: #5e6c84; font-size: 13px; letter-spacing: 1.5px; }
+  </style>
+
+  <!-- BEFORE -->
+  <g transform="translate(40,40)">
+    <text class="label" x="0" y="0">Native Jira · counts weekends</text>
+    <rect class="panel" x="0" y="14" width="380" height="60" rx="6" />
+    <text class="key" x="16" y="50">PROJ-142</text>
+    <text class="sum" x="100" y="50">Wire up auth callback edge case</text>
+    <g transform="translate(312,44)">
+      <circle class="grey" cx="0"  cy="0" r="5" />
+      <circle class="grey" cx="14" cy="0" r="5" />
+      <circle class="grey" cx="28" cy="0" r="5" />
+      <circle class="red"  cx="42" cy="0" r="5" />
+    </g>
+    <text class="note" x="0" y="100">7 calendar days → red tier (false alarm: card sat over a weekend).</text>
+  </g>
+
+  <!-- AFTER -->
+  <g transform="translate(460,40)">
+    <text class="label" x="0" y="0">Better Jira Dots · working days only</text>
+    <rect class="panel" x="0" y="14" width="380" height="60" rx="6" />
+    <text class="key" x="16" y="50">PROJ-142</text>
+    <text class="sum" x="100" y="50">Wire up auth callback edge case</text>
+    <g transform="translate(312,44)">
+      <circle class="grey" cx="0"  cy="0" r="5" />
+      <circle class="grey" cx="14" cy="0" r="5" />
+      <circle class="grey" cx="28" cy="0" r="5" />
+      <circle class="grey" cx="42" cy="0" r="5" />
+    </g>
+    <text class="note" x="0" y="100">Same card, 5 working days → still grey. Honest signal.</text>
+  </g>
+
+  <!-- Calendar strip -->
+  <g transform="translate(40,180)">
+    <text class="label" x="0" y="0">7 calendar days = 5 working days</text>
+    <g transform="translate(0,18)">
+      <!-- Days -->
+      <g font-size="12" fill="#172b4d" text-anchor="middle">
+        <g transform="translate(40,0)">
+          <rect x="-30" y="0" width="60" height="44" rx="6" fill="#deebff" stroke="#b3d4ff"/>
+          <text x="0" y="18">Mon</text><text x="0" y="34" font-weight="600">moved</text>
+        </g>
+        <g transform="translate(110,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#f4f5f7" stroke="#dfe1e6"/><text x="0" y="18">Tue</text><text x="0" y="34" fill="#5e6c84">work</text></g>
+        <g transform="translate(180,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#f4f5f7" stroke="#dfe1e6"/><text x="0" y="18">Wed</text><text x="0" y="34" fill="#5e6c84">work</text></g>
+        <g transform="translate(250,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#f4f5f7" stroke="#dfe1e6"/><text x="0" y="18">Thu</text><text x="0" y="34" fill="#5e6c84">work</text></g>
+        <g transform="translate(320,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#f4f5f7" stroke="#dfe1e6"/><text x="0" y="18">Fri</text><text x="0" y="34" fill="#5e6c84">work</text></g>
+        <g transform="translate(390,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#fffae6" stroke="#ffe380"/><text x="0" y="18" fill="#974f0c">Sat</text><text x="0" y="34" fill="#974f0c">off</text></g>
+        <g transform="translate(460,0)"><rect x="-30" y="0" width="60" height="44" rx="6" fill="#fffae6" stroke="#ffe380"/><text x="0" y="18" fill="#974f0c">Sun</text><text x="0" y="34" fill="#974f0c">off</text></g>
+        <g transform="translate(530,0)">
+          <rect x="-30" y="0" width="60" height="44" rx="6" fill="#deebff" stroke="#b3d4ff"/>
+          <text x="0" y="18">Mon</text><text x="0" y="34" font-weight="600">today</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Brace + result -->
+  <g transform="translate(40,260)">
+    <text class="note" x="0" y="0">Native Jira: <tspan fill="#c9372c" font-weight="600">7-day red tier</tspan>  ·  Better Jira Dots: <tspan fill="#172b4d" font-weight="600">5-day grey tier</tspan></text>
+    <text class="note" x="0" y="20">No more cards turning red because they happened to span a weekend.</text>
+  </g>
+</svg>
